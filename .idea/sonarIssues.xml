@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/java/com/digitalandroidweb/eTicketApp/adapter/PaymentAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/java/com/digitalandroidweb/eTicketApp/model/LoginResponse.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/java/com/digitalandroidweb/eTicketApp/network/Apinterface.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/java/com/digitalandroidweb/eTicketApp/util/ApplicationConstants.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/java/com/digitalandroidweb/eTicketApp/util/General.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/java/com/digitalandroidweb/eTicketApp/views/Dashboard/ChildView.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/java/com/digitalandroidweb/eTicketApp/views/Dashboard/DashboardActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/java/com/digitalandroidweb/eTicketApp/views/Dashboard/HomeFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/java/com/digitalandroidweb/eTicketApp/views/ValidateTicket.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/java/com/digitalandroidweb/eTicketApp/views/VendTicket.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/java/com/digitalandroidweb/eTicketApp/views/VendValidateDetail.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/java/com/digitalandroidweb/eTicketApp/views/changePassword/ChangePassword.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/res/layout/activity_vend_validate_detail.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/res/layout/dialog_view.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/res/layout/mcq_history_child.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ETicketApp/app/src/main/res/layout/primer_fragment.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/tv_time_spend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/_16sdp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:text="00:00:00" />
+
+
+    <com.mindorks.placeholderview.ExpandablePlaceHolderView
+        android:id="@+id/rv_mcqType"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_time_spend"
+        android:layout_marginTop="@dimen/_4sdp"
+        tools:listitem="@layout/mcq_type_item"
+        >
+    </com.mindorks.placeholderview.ExpandablePlaceHolderView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineH1"
+        style="@style/GuideLineSizeHorizotal"
+        app:layout_constraintGuide_percent="0.75" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineH2"
+        style="@style/GuideLineSizeHorizotal"
+        app:layout_constraintGuide_percent="0.99" />
+
+    <TextView
+        android:id="@+id/tv_history_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_mcqType"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="@string/history"
+        android:visibility="gone"
+        />
+
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+
+
+    <com.mindorks.placeholderview.ExpandablePlaceHolderView
+        android:id="@+id/rv_mcqHistoryD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_history_title"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineH2"
+        android:layout_marginTop="@dimen/_4sdp"
+        tools:listitem="@layout/mcq_history_child"
+        android:scrollbars="vertical"
+        app:layout_constrainedHeight="true"
+        android:visibility="gone"
+        >
+    </com.mindorks.placeholderview.ExpandablePlaceHolderView>
+
+    <TextView
+        android:id="@+id/tv_no_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.88"
+        android:text="@string/no_payment"
+        android:textSize="@dimen/_14sdp"
+        android:visibility="gone"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

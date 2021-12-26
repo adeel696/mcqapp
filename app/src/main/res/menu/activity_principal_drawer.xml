@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/dashboard"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/dashboard" />
+        <item
+            android:id="@+id/payment_history"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/payment_history" />
+        <item
+            android:id="@+id/offers"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/our_offers" />
+        <item
+            android:id="@+id/subscription"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/subscriptions" />
+        <item
+            android:id="@+id/history"
+            android:icon="@drawable/ic_edit"
+            android:title="@string/mcq_history"
+            />
+        <item
+            android:id="@+id/close"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/logout"
+            />
+    </group>
+
+<!--    <item android:title="Communicate">-->
+<!--        <menu>-->
+<!--            <item-->
+<!--                android:id="@+id/nav_share"-->
+<!--                android:icon="@drawable/ic_menu_share"-->
+<!--                android:title="Share" />-->
+<!--            <item-->
+<!--                android:id="@+id/nav_send"-->
+<!--                android:icon="@drawable/ic_menu_send"-->
+<!--                android:title="Send" />-->
+<!--        </menu>-->
+<!--    </item>-->
+
+</menu>

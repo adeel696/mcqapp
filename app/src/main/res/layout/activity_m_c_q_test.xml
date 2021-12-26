@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    xmlns:auto="http://schemas.android.com/apk/res-auto"
+    tools:context=".views.MCQTest.MCQTest">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineL"
+        style="@style/GuideLineSize"
+        app:layout_constraintGuide_percent="0.04"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineR"
+        style="@style/GuideLineSize"
+        app:layout_constraintGuide_percent="0.96"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_question_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/guidelineL"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="@string/question" />
+
+
+    <io.github.kexanie.library.MathView
+        android:id="@+id/tv_question"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/guidelineL"
+        app:layout_constraintEnd_toEndOf="@+id/guidelineR"
+        app:layout_constraintTop_toBottomOf="@+id/tv_question_title"
+        android:layout_marginTop="@dimen/_8sdp"
+        auto:engine="MathJax"
+        />
+
+    <ImageView
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:id="@+id/iv_question"
+        app:layout_constraintStart_toStartOf="@+id/tv_question"
+        app:layout_constraintTop_toBottomOf="@+id/tv_question"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/logo"
+        android:visibility="invisible"
+        />
+
+
+
+        <RadioButton
+            android:id="@+id/rb_option1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineL"
+            app:layout_constraintTop_toBottomOf="@+id/iv_question"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:text="" />
+
+    <io.github.kexanie.library.MathView
+        android:id="@+id/tv_option1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/rb_option1"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        app:layout_constraintTop_toBottomOf="@+id/iv_question"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        auto:engine="MathJax"
+        />
+
+    <ImageView
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:id="@+id/iv_option1"
+        app:layout_constraintStart_toStartOf="@+id/tv_option1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_option1"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/logo"
+        android:visibility="invisible"
+        />
+
+
+    <RadioButton
+        android:id="@+id/rb_option2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guidelineL"
+        app:layout_constraintTop_toBottomOf="@+id/tv_option1"
+        android:layout_marginTop="@dimen/_14sdp"
+        />
+
+    <io.github.kexanie.library.MathView
+        android:id="@+id/tv_option2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/rb_option2"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        app:layout_constraintTop_toBottomOf="@+id/tv_option1"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        auto:engine="MathJax"
+        />
+
+    <ImageView
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:id="@+id/iv_option2"
+        app:layout_constraintStart_toStartOf="@+id/tv_option2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_option2"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/logo"
+        android:visibility="invisible"
+        />
+
+
+    <RadioButton
+        android:id="@+id/rb_option3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guidelineL"
+        app:layout_constraintTop_toBottomOf="@+id/tv_option2"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:text="" />
+
+    <io.github.kexanie.library.MathView
+        android:id="@+id/tv_option3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/rb_option3"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        app:layout_constraintTop_toBottomOf="@+id/tv_option2"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        auto:engine="MathJax"
+        />
+
+    <ImageView
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:id="@+id/iv_option3"
+        app:layout_constraintStart_toStartOf="@+id/tv_option3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_option3"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/logo"
+        android:visibility="invisible"
+        />
+
+
+
+    <RadioButton
+        android:id="@+id/rb_option4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guidelineL"
+        app:layout_constraintTop_toBottomOf="@+id/tv_option3"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:text="" />
+
+    <io.github.kexanie.library.MathView
+        android:id="@+id/tv_option4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/rb_option4"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        app:layout_constraintTop_toBottomOf="@+id/tv_option3"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        auto:engine="MathJax"
+        />
+
+    <ImageView
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:id="@+id/iv_option4"
+        app:layout_constraintStart_toStartOf="@+id/tv_option4"
+        app:layout_constraintTop_toBottomOf="@+id/tv_option4"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/logo"
+        android:visibility="invisible"
+        />
+
+
+
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_start"
+        android:text="@string/start_test"
+        android:textColor="@color/colorText"
+        android:backgroundTint="@color/colorPrimaryDark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_next"
+        android:text="@string/next"
+        android:textColor="@color/colorText"
+        android:backgroundTint="@color/colorPrimaryDark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/_12sdp"
+        />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/question_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tv_question,iv_question,rb_option1,
+        rb_option2,rb_option3,rb_option4,tv_option1,tv_option2,tv_option3,
+        tv_option4,iv_option1,iv_option2,iv_option3,iv_option4,btn_next" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_score"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        android:gravity="center_horizontal"
+        android:text="@string/your_score_is"
+        android:textSize="@dimen/_24sdp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_detail"
+        android:text="@string/detail"
+        android:textColor="@color/colorText"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_score"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        />
+
+
+
+
+    <Chronometer
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_time"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:visibility="visible"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

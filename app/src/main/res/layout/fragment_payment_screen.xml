@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".views.PaymentScreen">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineL"
+        style="@style/GuideLineSize"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineR"
+        style="@style/GuideLineSize"
+        app:layout_constraintGuide_percent="0.96"
+        />
+
+    <TextView
+        android:id="@+id/tv_payment_detail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_18sdp"
+        android:text="@string/please_dial"
+        android:textColor="@android:color/black"
+        android:gravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/guidelineR"
+        app:layout_constraintStart_toStartOf="@+id/guidelineL"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/guidelineL"
+        app:layout_constraintEnd_toEndOf="@+id/guidelineR"
+        app:layout_constraintTop_toBottomOf="@+id/tv_payment_detail"
+        android:layout_marginTop="@dimen/_12sdp"
+        >
+        <EditText
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:hint="@string/number"
+            android:textColor="@android:color/black"
+            android:id="@+id/edt_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_otp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/guidelineL"
+        app:layout_constraintEnd_toEndOf="@+id/guidelineR"
+        app:layout_constraintTop_toBottomOf="@+id/layout_number"
+        android:layout_marginTop="@dimen/_12sdp"
+        >
+        <EditText
+            android:inputType="number"
+            android:importantForAutofill="no"
+            android:hint="@string/otp"
+            android:textColor="@android:color/black"
+            android:id="@+id/edt_otp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="6"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_submit"
+        />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/submit"
+        android:textColor="@color/colorText"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guidelineL"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        app:layout_constraintTop_toBottomOf="@+id/layout_otp"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_payment_mode"
+        android:src="@drawable/orange_money"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.35"
+        />
+
+    <Button
+        android:id="@+id/btn_payment_select"
+        android:background="@android:color/black"
+        android:text="@string/orange_burkina_faso"
+        android:textColor="@color/colorText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textCapWords"
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintStart_toStartOf="@id/guidelineL"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        app:layout_constraintBottom_toBottomOf="@id/iv_payment_mode"
+        />
+
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_payment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:constraint_referenced_ids="btn_submit,tv_payment_detail,layout_number,layout_otp"
+        android:visibility="gone"
+        />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_payment_selection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:constraint_referenced_ids="iv_payment_mode,btn_payment_select"
+        android:visibility="visible"
+        />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
