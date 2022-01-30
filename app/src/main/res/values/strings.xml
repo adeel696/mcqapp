@@ -63,4 +63,15 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="mcq">MCQ</string>
+    <string name="home">Home</string>
+    <string name="trainings">Trainings</string>
+    <string name="documents">Documents</string>
+    <string name="contacts">Contacts</string>
+    <string name="profile">Profile</string>
+    <string name="exit">Exit</string>
+    <string name="contact_detail">Contact us with details below. We are here to assist you.</string>
+    <string name="message">Message</string>
+    <string name="directions">Ouagadougou, Sector N°17 Tanghin, Avenue de la Concorde Nationale, Door 427</string>
+    <string name="telephone">Telephones: +226 76 50 66 66, +226 78 50 66 66, +226 62 50 66 66</string>
+    <string name="email_text">maigaformationsipeco@ipecobf.com</string>
 </resources>

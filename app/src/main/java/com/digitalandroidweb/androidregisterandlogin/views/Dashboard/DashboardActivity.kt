@@ -18,7 +18,7 @@ import com.digitalandroidweb.androidregisterandlogin.R
 import com.digitalandroidweb.androidregisterandlogin.views.History.MCQHistory
 import com.digitalandroidweb.androidregisterandlogin.views.Offers
 import com.digitalandroidweb.androidregisterandlogin.views.PaymentHistory
-import com.digitalandroidweb.androidregisterandlogin.views.Subscriptions
+import com.digitalandroidweb.androidregisterandlogin.views.ContactUs
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 
@@ -97,27 +97,27 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         // Handle navigation view item clicks here.
         val id = item.itemId
         val fragmentManager = supportFragmentManager
-        if (id == R.id.dashboard) {
+        if (id == R.id.home) {
             supportActionBar?.title = getString(R.string.dashboard)
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, MCQTypeList())
                     .commit()
-        } else if (id == R.id.payment_history) {
+        } else if (id == R.id.trainings) {
             supportActionBar?.title = getString(R.string.payment_history)
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, PaymentHistory())
                     .commit()
-        } else if (id == R.id.offers) {
+        } else if (id == R.id.documents) {
             supportActionBar?.title = getString(R.string.our_offers)
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, Offers())
                     .commit()
-        } else if (id == R.id.subscription) {
-            supportActionBar?.title = getString(R.string.subscriptions)
+        } else if (id == R.id.contacts) {
+            supportActionBar?.title = getString(R.string.contacts)
             fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, Subscriptions())
+                    .replace(R.id.content_frame, ContactUs())
                     .commit()
-        }else if (id == R.id.history) {
+        }else if (id == R.id.profile) {
             supportActionBar?.title = getString(R.string.mcq_history)
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, MCQHistory())

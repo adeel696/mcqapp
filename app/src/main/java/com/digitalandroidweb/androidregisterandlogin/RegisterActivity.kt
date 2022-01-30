@@ -23,7 +23,6 @@ import kotlinx.coroutines.launch
 class RegisterActivity : AppCompatActivity() {
     private var name: EditText? = null
     private var email: EditText? = null
-    private var username: EditText? = null
     private var password: EditText? = null
     private var c_password: EditText? = null
     private var phone: EditText? = null
@@ -43,7 +42,6 @@ class RegisterActivity : AppCompatActivity() {
         loading = findViewById(R.id.loading)
         name = findViewById(R.id.name)
         email = findViewById(R.id.email)
-        username = findViewById(R.id.username)
         password = findViewById(R.id.password)
         c_password = findViewById(R.id.c_password)
         phone = findViewById(R.id.phone)
@@ -54,7 +52,6 @@ class RegisterActivity : AppCompatActivity() {
     private fun Regist() {
         val name = name!!.text.toString().trim { it <= ' ' }
         val email = email!!.text.toString().trim { it <= ' ' }
-        val username = username!!.text.toString().trim { it <= ' ' }
         val password = password!!.text.toString().trim { it <= ' ' }
         val confirmPassword = c_password!!.text.toString().trim { it <= ' ' }
         val phoneNumber = phone!!.text.toString().trim { it <= ' ' }
@@ -66,10 +63,10 @@ class RegisterActivity : AppCompatActivity() {
             this.email!!.error = getString(R.string.email_error)
             return
         }
-        if (username.isEmpty()) {
-            this.username!!.error = getString(R.string.user_error)
-            return
-        }
+//        if (username.isEmpty()) {
+//            this.username!!.error = getString(R.string.user_error)
+//            return
+//        }
         if (password.isEmpty()) {
             this.password!!.error = getString(R.string.password_error)
             return
@@ -93,7 +90,7 @@ class RegisterActivity : AppCompatActivity() {
 
         coroutineScope.launch {
             try {
-                val registerRequest = RegisterRequest(name,email, username,password,confirmPassword,phoneNumber)
+                val registerRequest = RegisterRequest(name,email,password,confirmPassword,phoneNumber)
                 val retrofitService = RetrofitClient.GetService()
                 val response = retrofitService.userRegister(registerRequest)
                 if(response.isSuccessful && response.body()!=null){

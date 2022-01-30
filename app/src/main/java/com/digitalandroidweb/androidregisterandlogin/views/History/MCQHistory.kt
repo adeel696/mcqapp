@@ -10,20 +10,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.digitalandroidweb.androidregisterandlogin.LoginActivity
 import com.digitalandroidweb.androidregisterandlogin.R
-import com.digitalandroidweb.androidregisterandlogin.RegisterActivity
 import com.digitalandroidweb.androidregisterandlogin.model.GetMcqHistoryResponse
-import com.digitalandroidweb.androidregisterandlogin.model.GetMcqResponse
 import com.digitalandroidweb.androidregisterandlogin.network.RetrofitClient
 import com.digitalandroidweb.androidregisterandlogin.util.General
-import com.digitalandroidweb.androidregisterandlogin.views.Dashboard.ChildView
 import com.digitalandroidweb.androidregisterandlogin.views.Dashboard.ChildViewMCQHistory
 import com.digitalandroidweb.androidregisterandlogin.views.Dashboard.HeaderView
-import com.digitalandroidweb.androidregisterandlogin.views.Dashboard.MCQTypeList
-import com.digitalandroidweb.androidregisterandlogin.views.Subscriptions
+import com.digitalandroidweb.androidregisterandlogin.views.ContactUs
 import kotlinx.android.synthetic.main.fragment_m_c_q_history.*
 import kotlinx.android.synthetic.main.fragment_m_c_q_history.loading
 import kotlinx.android.synthetic.main.fragment_m_c_q_history.tv_time_spend
-import kotlinx.android.synthetic.main.fragment_subscriptions.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -105,17 +100,17 @@ class MCQHistory : Fragment() {
                 val retrofitService = RetrofitClient.GetService()
                 val response = retrofitService.getTimeSpend(General.addHeaders(mContext, true))
                 if(response.isSuccessful && response.body()!=null){
-                    Log.d(Subscriptions::class.simpleName, " Success: ${response.body()}")
+                    Log.d(ContactUs::class.simpleName, " Success: ${response.body()}")
                     val time = response.body() as String
-                    Log.d(Subscriptions::class.simpleName, "callTimeApi: ${time}")
+                    Log.d(ContactUs::class.simpleName, "callTimeApi: ${time}")
                     coroutineScope.launch(Dispatchers.Main) {
                         tv_time_spend.text = time
                     }
                 }else{
-                    Log.d(Subscriptions::class.simpleName, "callTime Api Fail: ${response.errorBody()}")
+                    Log.d(ContactUs::class.simpleName, "callTime Api Fail: ${response.errorBody()}")
                 }
             } catch (e: Exception) {
-                Log.d(Subscriptions::class.simpleName, "callTime Api: Exception ${e.message} ")
+                Log.d(ContactUs::class.simpleName, "callTime Api: Exception ${e.message} ")
             }
         }
 

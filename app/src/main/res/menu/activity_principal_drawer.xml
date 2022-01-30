@@ -5,30 +5,30 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/dashboard"
+            android:id="@+id/home"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/dashboard" />
+            android:title="@string/home" />
         <item
-            android:id="@+id/payment_history"
+            android:id="@+id/trainings"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/payment_history" />
+            android:title="@string/trainings" />
         <item
-            android:id="@+id/offers"
+            android:id="@+id/documents"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/our_offers" />
+            android:title="@string/documents" />
         <item
-            android:id="@+id/subscription"
+            android:id="@+id/contacts"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/subscriptions" />
+            android:title="@string/contacts" />
         <item
-            android:id="@+id/history"
+            android:id="@+id/profile"
             android:icon="@drawable/ic_edit"
-            android:title="@string/mcq_history"
+            android:title="@string/profile"
             />
         <item
             android:id="@+id/close"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/logout"
+            android:title="@string/exit"
             />
     </group>
 

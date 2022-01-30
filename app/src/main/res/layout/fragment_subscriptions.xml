@@ -4,7 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".views.Subscriptions">
+    tools:context=".views.ContactUs">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineL"
+        style="@style/GuideLineSize"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineR"
+        style="@style/GuideLineSize"
+        app:layout_constraintGuide_percent="0.96"
+        />
+
 
     <TextView
         android:id="@+id/tv_time_spend"
@@ -15,7 +27,9 @@
         android:textSize="@dimen/_16sdp"
         android:textColor="@android:color/black"
         android:layout_marginTop="@dimen/_4sdp"
-        android:text="00:00:00" />
+        android:text="00:00:00"
+        android:visibility="gone"
+        />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -27,6 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_time_spend"
         tools:listitem="@layout/subscription_item"
         android:layout_marginTop="@dimen/_4sdp"
+        android:visibility="gone"
         />
 
     <ProgressBar
@@ -34,11 +49,193 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
+        android:layout_marginTop="@dimen/_8sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_submit"
         />
+
+    <TextView
+        android:id="@+id/tv_detail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guidelineL"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:text="@string/contact_detail"
+        android:textAlignment="center"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_name"
+        app:layout_constraintLeft_toLeftOf="@id/guidelineL"
+        app:layout_constraintRight_toRightOf="@id/guidelineR"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
+        android:layout_marginTop="@dimen/_8sdp"
+        >
+        <EditText
+            android:id="@+id/edt_name"
+            android:hint="@string/name"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_email"
+        app:layout_constraintLeft_toLeftOf="@id/guidelineL"
+        app:layout_constraintRight_toRightOf="@id/guidelineR"
+        app:layout_constraintTop_toBottomOf="@+id/layout_name"
+        >
+        <EditText
+            android:id="@+id/email"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_message"
+        app:layout_constraintLeft_toLeftOf="@id/guidelineL"
+        app:layout_constraintRight_toRightOf="@id/guidelineR"
+        app:layout_constraintTop_toBottomOf="@+id/layout_email">
+        <EditText
+            android:id="@+id/edt_message"
+            android:hint="@string/message"
+            android:inputType="textLongMessage"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
+        android:text="@string/submit"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_40sdp"
+        app:layout_constraintLeft_toLeftOf="@id/guidelineL"
+        app:layout_constraintRight_toRightOf="@id/guidelineR"
+        app:layout_constraintTop_toBottomOf="@+id/layout_message"
+        />
+
+    <ImageView
+        android:id="@+id/iv_directions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_directions"
+        app:layout_constraintStart_toStartOf="@id/guidelineL"
+        app:layout_constraintTop_toTopOf="@+id/tv_directions"
+        android:layout_marginTop="@dimen/_8sdp"
+        />
+
+    <TextView
+        android:id="@+id/tv_directions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/loading"
+        app:layout_constraintStart_toEndOf="@+id/iv_directions"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="@android:color/black"
+        android:text="@string/directions"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/_4sdp"
+        />
+
+
+    <ImageView
+        android:id="@+id/iv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_phone"
+        app:layout_constraintStart_toStartOf="@id/guidelineL"
+        app:layout_constraintTop_toTopOf="@+id/tv_phone"
+        android:layout_marginTop="@dimen/_8sdp"
+        />
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_directions"
+        app:layout_constraintStart_toEndOf="@+id/iv_directions"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="@android:color/black"
+        android:text="@string/telephone"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/_8sdp"
+        />
+
+
+
+    <ImageView
+        android:id="@+id/iv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_email_24"
+        app:layout_constraintStart_toStartOf="@id/guidelineL"
+        app:layout_constraintTop_toTopOf="@+id/tv_email"
+        />
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_phone"
+        app:layout_constraintStart_toEndOf="@+id/iv_email"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="@android:color/black"
+        android:text="@string/email_text"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/_8sdp"
+        />
+
+
+    <ImageView
+        android:id="@+id/iv_whatsapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_email_24"
+        app:layout_constraintStart_toStartOf="@id/guidelineL"
+        app:layout_constraintTop_toTopOf="@+id/tv_whatsapp"
+        />
+
+    <TextView
+        android:id="@+id/tv_whatsapp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_email"
+        app:layout_constraintStart_toEndOf="@+id/iv_whatsapp"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="@android:color/black"
+        android:text="@string/email_text"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/_8sdp"
+        />
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

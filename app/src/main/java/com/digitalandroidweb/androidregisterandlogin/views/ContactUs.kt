@@ -15,7 +15,6 @@ import com.digitalandroidweb.androidregisterandlogin.adapter.PaymentAdapter
 import com.digitalandroidweb.androidregisterandlogin.model.Subscription
 import com.digitalandroidweb.androidregisterandlogin.network.RetrofitClient
 import com.digitalandroidweb.androidregisterandlogin.util.General
-import kotlinx.android.synthetic.main.fragment_offers.*
 import kotlinx.android.synthetic.main.fragment_subscriptions.*
 import kotlinx.android.synthetic.main.fragment_subscriptions.loading
 import kotlinx.android.synthetic.main.fragment_subscriptions.tv_time_spend
@@ -25,7 +24,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 
-class Subscriptions : Fragment() {
+class ContactUs : Fragment() {
 
     // Create a Coroutine scope using a job to be able to cancel when needed
     var viewModelJob = Job()
@@ -40,7 +39,7 @@ class Subscriptions : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.d(Subscriptions::class.simpleName, "onAttach: ")
+        Log.d(ContactUs::class.simpleName, "onAttach: ")
         this.mContext = context
     }
 
@@ -57,20 +56,20 @@ class Subscriptions : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Log.d(Subscriptions::class.simpleName, "onResume: ")
-        callApi()
-        val mLayoutManager = LinearLayoutManager(requireContext())
-        rv_subscription.layoutManager = mLayoutManager
+        Log.d(ContactUs::class.simpleName, "onResume: ")
+        //callApi()
+//        val mLayoutManager = LinearLayoutManager(requireContext())
+//        rv_subscription.layoutManager = mLayoutManager
     }
 
     private fun callApi() {
-        Log.d(Subscriptions::class.simpleName, "callApi: ")
+        Log.d(ContactUs::class.simpleName, "callApi: ")
         coroutineScope.launch {
             try {
                 val retrofitService = RetrofitClient.GetService()
                 val response = retrofitService.getSubscriptionList(General.addHeaders(mContext, true))
                 if(response.isSuccessful && response.body()!=null){
-                    Log.d(Subscriptions::class.simpleName, " Success: ${response.body()}")
+                    Log.d(ContactUs::class.simpleName, " Success: ${response.body()}")
                     val subscriptionList = response.body() as ArrayList<Subscription>
                     Log.d(PaymentHistory::class.simpleName, "callApi: ${subscriptionList.size}")
                     coroutineScope.launch(Dispatchers.Main) {
@@ -79,10 +78,10 @@ class Subscriptions : Fragment() {
                         loading.visibility = View.GONE
                     }
                 }else{
-                    Log.d(Subscriptions::class.simpleName, "callLoginApi Fail: ${response.errorBody()}")
+                    Log.d(ContactUs::class.simpleName, "callLoginApi Fail: ${response.errorBody()}")
                 }
             } catch (e: Exception) {
-                Log.d(Subscriptions::class.simpleName, "callLoginApi: Exception ${e.message} ")
+                Log.d(ContactUs::class.simpleName, "callLoginApi: Exception ${e.message} ")
             }
         }
 
@@ -91,17 +90,17 @@ class Subscriptions : Fragment() {
                 val retrofitService = RetrofitClient.GetService()
                 val response = retrofitService.getTimeSpend(General.addHeaders(mContext, true))
                 if(response.isSuccessful && response.body()!=null){
-                    Log.d(Subscriptions::class.simpleName, " Success: ${response.body()}")
+                    Log.d(ContactUs::class.simpleName, " Success: ${response.body()}")
                     val time = response.body() as String
-                    Log.d(Subscriptions::class.simpleName, "callTimeApi: ${time}")
+                    Log.d(ContactUs::class.simpleName, "callTimeApi: ${time}")
                     coroutineScope.launch(Dispatchers.Main) {
                         tv_time_spend.text = time
                     }
                 }else{
-                    Log.d(Subscriptions::class.simpleName, "callTime Api Fail: ${response.errorBody()}")
+                    Log.d(ContactUs::class.simpleName, "callTime Api Fail: ${response.errorBody()}")
                 }
             } catch (e: Exception) {
-                Log.d(Subscriptions::class.simpleName, "callTime Api: Exception ${e.message} ")
+                Log.d(ContactUs::class.simpleName, "callTime Api: Exception ${e.message} ")
             }
         }
     }
