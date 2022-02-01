@@ -7,6 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".views.History.MCQHistory">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineL"
+        style="@style/GuideLineSize"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineR"
+        style="@style/GuideLineSize"
+        app:layout_constraintGuide_percent="0.96"
+        />
+
+
 
     <TextView
         android:id="@+id/tv_time_spend"
@@ -17,7 +29,9 @@
         android:textSize="@dimen/_16sdp"
         android:textColor="@android:color/black"
         android:layout_marginTop="@dimen/_4sdp"
-        android:text="00:00:00" />
+        android:text="00:00:00"
+        android:visibility="gone"
+        />
 
 
     <com.mindorks.placeholderview.ExpandablePlaceHolderView
@@ -29,6 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_time_spend"
         tools:listitem="@layout/mcq_type_item"
         android:layout_marginTop="@dimen/_4sdp"
+        android:visibility="gone"
         >
     </com.mindorks.placeholderview.ExpandablePlaceHolderView>
 
@@ -36,7 +51,7 @@
         android:id="@+id/loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -55,5 +70,99 @@
         android:textSize="@dimen/_14sdp"
         android:visibility="gone"
         />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guidelineL"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:id="@+id/layout_name"
+        >
+        <EditText
+            android:id="@+id/edt_name"
+            android:hint="@string/name"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_password"
+        app:layout_constraintStart_toStartOf="@id/guidelineL"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        app:layout_constraintTop_toBottomOf="@+id/layout_name"
+        app:passwordToggleEnabled="true"
+        android:layout_marginTop="@dimen/_8sdp"
+        >
+        <EditText
+            android:id="@+id/edt_password"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_confirm_pass"
+        app:layout_constraintStart_toStartOf="@id/guidelineL"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        app:layout_constraintTop_toBottomOf="@+id/layout_password"
+        app:passwordToggleEnabled="true"
+        android:layout_marginTop="@dimen/_8sdp"
+        >
+        <EditText
+            android:id="@+id/confirm_password"
+            android:hint="@string/confrim_password"
+            android:inputType="textPassword"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_image"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
+        android:text="@string/image"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginStart="@dimen/_8sdp"
+        app:layout_constraintTop_toBottomOf="@id/layout_confirm_pass"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/iv_preview"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_120sdp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_8sdp"
+        />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
+        android:text="@string/submit"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        app:layout_constraintTop_toBottomOf="@id/iv_preview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

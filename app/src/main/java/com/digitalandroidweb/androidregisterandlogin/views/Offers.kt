@@ -61,16 +61,22 @@ class Offers : Fragment() {
         return inflater.inflate(R.layout.fragment_offers, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.d(Offers::class.simpleName, "onViewCreated: ")
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        Log.d(Offers::class.simpleName, "onActivityCreated: ")
     }
 
     override fun onResume() {
         super.onResume()
         Log.d(Offers::class.simpleName, "onResume: ")
-        callApi()
-        val mLayoutManager = LinearLayoutManager(requireContext())
-        rv_offers.layoutManager = mLayoutManager
+//        callApi()
+//        val mLayoutManager = LinearLayoutManager(requireContext())
+//        rv_offers.layoutManager = mLayoutManager
     }
 
     private fun callApi() {

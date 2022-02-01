@@ -3,25 +3,22 @@ package com.digitalandroidweb.androidregisterandlogin.views
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.digitalandroidweb.androidregisterandlogin.R
 import com.digitalandroidweb.androidregisterandlogin.adapter.PaymentAdapter
+import com.digitalandroidweb.androidregisterandlogin.model.ContactRequest
 import com.digitalandroidweb.androidregisterandlogin.model.Subscription
 import com.digitalandroidweb.androidregisterandlogin.network.RetrofitClient
 import com.digitalandroidweb.androidregisterandlogin.util.General
 import kotlinx.android.synthetic.main.fragment_subscriptions.*
-import kotlinx.android.synthetic.main.fragment_subscriptions.loading
-import kotlinx.android.synthetic.main.fragment_subscriptions.tv_time_spend
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
+import java.util.*
 
 
 class ContactUs : Fragment() {
@@ -54,6 +51,69 @@ class ContactUs : Fragment() {
     }
 
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.d(ContactUs::class.simpleName, "onViewCreated: ")
+        val year = Calendar.getInstance()[Calendar.YEAR]
+        tv_footer.text = getString(R.string.copyright_text, year.toString())
+
+        btn_submit.setOnClickListener {
+            Log.d(ContactUs::class.simpleName, "onViewCreated: ")
+            val name = edt_name!!.text.toString().trim { it <= ' ' }
+            val email = edt_email!!.text.toString().trim { it <= ' ' }
+            val message = edt_message!!.text.toString().trim { it <= ' ' }
+
+            if (name.isEmpty()) {
+                this.edt_name!!.error = getString(R.string.name_error)
+                return@setOnClickListener
+            }
+            if (email.isEmpty()) {
+                this.edt_email!!.error = getString(R.string.email_error)
+                return@setOnClickListener
+            }
+
+            if (message.isEmpty()) {
+                this.edt_message!!.error = getString(R.string.empty_message)
+                return@setOnClickListener
+            }
+
+            loading!!.visibility = View.VISIBLE
+            btn_submit!!.visibility = View.GONE
+
+            coroutineScope.launch {
+                try {
+                    val contactRequest = ContactRequest(name, email, message)
+                    val retrofitService = RetrofitClient.GetService()
+                    val response = retrofitService.contact(General.addHeaders(mContext, true), contactRequest)
+                    if(response.isSuccessful && response.body()!=null){
+                        Log.d(ContactUs::class.simpleName, " Success: ${response.body()}")
+                        withContext(Dispatchers.Main) {
+                            loading!!.visibility = View.GONE
+                            btn_submit!!.visibility = View.VISIBLE
+                            Toast.makeText(mContext, getString(R.string.message_success), Toast.LENGTH_LONG).show()
+                        }
+                    }else{
+                        Log.d(ContactUs::class.simpleName, "callLoginApi Fail: ${response.errorBody()}")
+                        withContext(Dispatchers.Main)  {
+                            General.showAlterDialog(getString(R.string.error), getString(R.string.went_wrong_error), mContext)
+                            loading!!.visibility = View.GONE
+                            btn_submit!!.visibility = View.VISIBLE
+                        }
+                    }
+                } catch (e: Exception) {
+                    Log.d(ContactUs::class.simpleName, "callLoginApi: Exception ${e.message} ")
+                    withContext(Dispatchers.Main)  {
+                        General.showAlterDialog(getString(R.string.error), getString(R.string.went_wrong_error), mContext)
+                        loading!!.visibility = View.GONE
+                        btn_submit!!.visibility = View.VISIBLE
+                    }
+                }
+            }
+
+
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         Log.d(ContactUs::class.simpleName, "onResume: ")
@@ -73,7 +133,7 @@ class ContactUs : Fragment() {
                     val subscriptionList = response.body() as ArrayList<Subscription>
                     Log.d(PaymentHistory::class.simpleName, "callApi: ${subscriptionList.size}")
                     coroutineScope.launch(Dispatchers.Main) {
-                        adapter = SubscriptionAdapter (subscriptionList, mContext)
+                        adapter = SubscriptionAdapter(subscriptionList, mContext)
                         rv_subscription.adapter = adapter
                         loading.visibility = View.GONE
                     }
@@ -105,7 +165,7 @@ class ContactUs : Fragment() {
         }
     }
 
-    inner class SubscriptionAdapter (private val subscriptionList: ArrayList<Subscription>, val context: Context) :
+    inner class SubscriptionAdapter(private val subscriptionList: ArrayList<Subscription>, val context: Context) :
             RecyclerView.Adapter<SubscriptionAdapter.ViewHolder>() {
 
 

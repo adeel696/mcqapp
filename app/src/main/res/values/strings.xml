@@ -74,4 +74,13 @@
     <string name="directions">Ouagadougou, Sector N°17 Tanghin, Avenue de la Concorde Nationale, Door 427</string>
     <string name="telephone">Telephones: +226 76 50 66 66, +226 78 50 66 66, +226 62 50 66 66</string>
     <string name="email_text">maigaformationsipeco@ipecobf.com</string>
+    <string name="whatsapp_text">+226 76 33 05 05</string>
+    <string name="fc_text">MAIGA FORMATIONS IPECO</string>
+    <string name="empty_message">Message Cannot be Empty</string>
+    <string name="message_success">Message Sent Successfully</string>
+    <string name="copyright_text">Copyright © %1$s MAIGA Formations IPECO, Tous droits réservés.</string>
+    <string name="header_title">Welcome to MAIGA Formations IPECO (at your service since 1995)</string>
+    <string name="header_desc">You train online and face-to-face for the various public service competitions.</string>
+    <string name="image">Image</string>
+    <string name="profile_update">Profile Updated Successfully</string>
 </resources>

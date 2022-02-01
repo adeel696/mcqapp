@@ -14,6 +14,12 @@ interface Apinterface {
     @POST(ApplicationConstants.REGISTER)
     suspend fun userRegister(@Body registerRequest: RegisterRequest): Response<RegisterResponse>
 
+    @POST(ApplicationConstants.EDIT_PROFILE)
+    suspend fun editProfile(@HeaderMap header: Map<String?, String?>,@Body profileRequest: ProfileRequest): Response<RegisterResponse>
+
+    @POST(ApplicationConstants.CONTACT)
+    suspend fun contact(@HeaderMap header: Map<String?, String?>,@Body contactRequest: ContactRequest): Response<RegisterResponse>
+
     @POST(ApplicationConstants.PAYMENT)
     suspend fun addPayment(@HeaderMap header: Map<String?, String?>,@Body paymentRequest: PaymentRequest): Response<PaymentResponse>
 

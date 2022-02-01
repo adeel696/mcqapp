@@ -4,12 +4,11 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.preference.PreferenceManager
+import com.digitalandroidweb.androidregisterandlogin.util.ApplicationConstants.Companion.IMAGE_URL
+import com.digitalandroidweb.androidregisterandlogin.util.ApplicationConstants.Companion.NAME
 import com.digitalandroidweb.androidregisterandlogin.util.ApplicationConstants.Companion.USER_ID
 import com.digitalandroidweb.androidregisterandlogin.util.ApplicationConstants.Companion.USER_PASS
 import com.digitalandroidweb.androidregisterandlogin.util.ApplicationConstants.Companion.USER_TOKEN
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import java.lang.reflect.Type
 
 
 class SharedPreference {
@@ -32,6 +31,18 @@ class SharedPreference {
         fun setUserPass(context: Context, pass: String) {
             val editor: SharedPreferences.Editor = initShardPreference(context)!!.edit()
             editor.putString(USER_PASS, pass)
+            editor.apply()
+        }
+
+        fun setImageUrl(context: Context, imageUrl: String) {
+            val editor: SharedPreferences.Editor = initShardPreference(context)!!.edit()
+            editor.putString(IMAGE_URL, imageUrl)
+            editor.apply()
+        }
+
+        fun setName(context: Context, name: String) {
+            val editor: SharedPreferences.Editor = initShardPreference(context)!!.edit()
+            editor.putString(NAME, name)
             editor.apply()
         }
 
@@ -64,6 +75,23 @@ class SharedPreference {
             val msharedPreferences: SharedPreferences? = initShardPreference(context)
             if (msharedPreferences != null) {
                 return msharedPreferences.getString(USER_TOKEN, "")
+            }
+            return ""
+        }
+
+
+        fun getImageUrl(context: Context): String? {
+            val msharedPreferences: SharedPreferences? = initShardPreference(context)
+            if (msharedPreferences != null) {
+                return msharedPreferences.getString(IMAGE_URL, "")
+            }
+            return ""
+        }
+
+        fun getName(context: Context): String? {
+            val msharedPreferences: SharedPreferences? = initShardPreference(context)
+            if (msharedPreferences != null) {
+                return msharedPreferences.getString(NAME, "")
             }
             return ""
         }

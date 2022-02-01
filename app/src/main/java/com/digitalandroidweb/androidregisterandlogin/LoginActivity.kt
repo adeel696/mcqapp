@@ -41,8 +41,8 @@ class LoginActivity : AppCompatActivity() {
             if (!mEmail.isEmpty() || !mPass.isEmpty()) {
                 Login(mEmail, mPass);
             } else {
-                email.setError(getString(R.string.email_error));
-                password.setError(getString(R.string.password_error));
+                email.error = getString(R.string.email_error)
+                password.error = getString(R.string.password_error)
             }
         })
         link_regist.setOnClickListener(View.OnClickListener { startActivity(Intent(this@LoginActivity, RegisterActivity::class.java)) })
@@ -65,6 +65,8 @@ class LoginActivity : AppCompatActivity() {
                     Log.d(LoginActivity::class.simpleName, "callLoginApi Success: ${response.body()}")
                     val loginResponse = response.body() as LoginResponse
                     SharedPreference.setUserToken(this@LoginActivity,loginResponse.token_type+" "+loginResponse.access_token)
+                    SharedPreference.setImageUrl(this@LoginActivity,loginResponse.user_image)
+                    SharedPreference.setName(this@LoginActivity,loginResponse.name)
                     runOnUiThread {
                         loading!!.visibility = View.GONE
                         btn_login!!.visibility = View.VISIBLE

@@ -23,6 +23,24 @@ data class RegisterRequest(
         val phone: String
 )
 
+data class ProfileRequest(
+        @SerializedName("name")
+        val name: String,
+        @SerializedName("image")
+        val image: String,
+        @SerializedName("password")
+        val password: String
+)
+
+data class ContactRequest(
+        @SerializedName("name")
+        val name: String,
+        @SerializedName("email")
+        val email: String,
+        @SerializedName("message")
+        val message: String
+)
+
 data class PaymentRequest(
         @SerializedName("mobile_number")
         val mobile_number: String,

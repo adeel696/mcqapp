@@ -17,17 +17,19 @@ import com.digitalandroidweb.androidregisterandlogin.model.GetMcqResponse
 import com.digitalandroidweb.androidregisterandlogin.network.RetrofitClient
 import com.digitalandroidweb.androidregisterandlogin.util.General
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.fragment_subscriptions.*
 import kotlinx.android.synthetic.main.primer_fragment.*
 import kotlinx.android.synthetic.main.primer_fragment.loading
+import kotlinx.android.synthetic.main.primer_fragment.tv_footer
 import kotlinx.android.synthetic.main.primer_fragment.tv_time_spend
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import java.util.ArrayList
+import java.util.*
 
 
-class MCQTypeList : Fragment(), NavigationView.OnNavigationItemSelectedListener {
+class MCQTypeList : Fragment() {
     var myView: View? = null
 
     // Create a Coroutine scope using a job to be able to cancel when needed
@@ -44,10 +46,25 @@ class MCQTypeList : Fragment(), NavigationView.OnNavigationItemSelectedListener 
         this.mContext = context
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.d(MCQTypeList::class.simpleName, "onViewCreated: ")
+        val year = Calendar.getInstance()[Calendar.YEAR]
+        tv_footer.text = getString(R.string.copyright_text, year.toString())
+//        val mLayoutManager = LinearLayoutManager(requireContext())
+//        rv_mcqType.layoutManager = mLayoutManager
+        //callApi()
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        Log.d(MCQTypeList::class.simpleName, "onActivityCreated: ")
+    }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Log.d(MCQTypeList::class.simpleName, "onCreateView: ")
-        myView = inflater.inflate(R.layout.primer_fragment, null, false)
+        myView = inflater.inflate(R.layout.primer_fragment, container, false)
         return myView
     }
 
@@ -138,21 +155,8 @@ class MCQTypeList : Fragment(), NavigationView.OnNavigationItemSelectedListener 
 
     override fun onResume() {
         super.onResume()
-        val mLayoutManager = LinearLayoutManager(requireContext())
-        rv_mcqHistoryD.layoutManager = mLayoutManager
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        Log.d(MCQTypeList::class.simpleName, "onActivityCreated: ")
-        val mLayoutManager = LinearLayoutManager(requireContext())
-        rv_mcqType.layoutManager = mLayoutManager
-        callApi()
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        Log.d(MCQTypeList::class.simpleName, "onNavigationItemSelected: ")
-        return false
+//        val mLayoutManager = LinearLayoutManager(requireContext())
+//        rv_mcqHistoryD.layoutManager = mLayoutManager
     }
 
 }

@@ -13,14 +13,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.digitalandroidweb.androidregisterandlogin.LoginActivity
 import com.digitalandroidweb.androidregisterandlogin.R
+import com.digitalandroidweb.androidregisterandlogin.util.SharedPreference
 import com.digitalandroidweb.androidregisterandlogin.views.History.MCQHistory
 import com.digitalandroidweb.androidregisterandlogin.views.Offers
 import com.digitalandroidweb.androidregisterandlogin.views.PaymentHistory
 import com.digitalandroidweb.androidregisterandlogin.views.ContactUs
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.app_bar_principal.*
 
 
 class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -34,8 +38,10 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         super.onCreate(savedInstanceState)
         Log.d(DashboardActivity::class.simpleName, "onCreate: ")
         setContentView(R.layout.activity_principal)
+        val imageUrl = SharedPreference.getImageUrl(this)
+        Glide.with(this).load(imageUrl).apply(RequestOptions.circleCropTransform()).into(user_image)
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
-        toolbar.title = getString(R.string.dashboard)
+        tv_title.text = getString(R.string.home)
         setSupportActionBar(toolbar)
         loadHomePage()
         val fab = findViewById<View>(R.id.fab) as FloatingActionButton
@@ -98,27 +104,27 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         val id = item.itemId
         val fragmentManager = supportFragmentManager
         if (id == R.id.home) {
-            supportActionBar?.title = getString(R.string.dashboard)
+            tv_title.text = getString(R.string.home)
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, MCQTypeList())
                     .commit()
         } else if (id == R.id.trainings) {
-            supportActionBar?.title = getString(R.string.payment_history)
+            tv_title.text = getString(R.string.trainings)
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, PaymentHistory())
                     .commit()
         } else if (id == R.id.documents) {
-            supportActionBar?.title = getString(R.string.our_offers)
+            tv_title.text = getString(R.string.documents)
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, Offers())
                     .commit()
         } else if (id == R.id.contacts) {
-            supportActionBar?.title = getString(R.string.contacts)
+            tv_title.text = getString(R.string.contacts)
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, ContactUs())
                     .commit()
         }else if (id == R.id.profile) {
-            supportActionBar?.title = getString(R.string.mcq_history)
+            tv_title.text = getString(R.string.profile)
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, MCQHistory())
                     .commit()

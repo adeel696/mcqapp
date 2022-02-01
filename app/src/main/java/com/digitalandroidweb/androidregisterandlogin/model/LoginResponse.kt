@@ -8,7 +8,11 @@ data class LoginResponse (
     @SerializedName("token_type")
     val token_type: String,
     @SerializedName("expires_at")
-    val expires_at: String
+    val expires_at: String,
+    @SerializedName("user_image")
+    val user_image: String,
+    @SerializedName("name")
+    val name: String
     )
 
 data class RegisterResponse (

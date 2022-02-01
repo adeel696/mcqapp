@@ -48,7 +48,7 @@
         android:id="@+id/loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_marginTop="@dimen/_8sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/layout_name"
         >
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/edt_email"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:textColor="@android:color/black"
@@ -215,7 +215,7 @@
         android:id="@+id/iv_whatsapp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_baseline_email_24"
+        app:srcCompat="@drawable/ic_whatsapp"
         app:layout_constraintStart_toStartOf="@id/guidelineL"
         app:layout_constraintTop_toTopOf="@+id/tv_whatsapp"
         />
@@ -229,11 +229,48 @@
         app:layout_constraintEnd_toEndOf="@id/guidelineR"
         android:textSize="@dimen/_14sdp"
         android:textColor="@android:color/black"
-        android:text="@string/email_text"
+        android:text="@string/whatsapp_text"
         android:textAlignment="center"
         android:layout_marginTop="@dimen/_8sdp"
         />
 
+
+    <ImageView
+        android:id="@+id/iv_facebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_facebook"
+        app:layout_constraintStart_toStartOf="@id/guidelineL"
+        app:layout_constraintTop_toTopOf="@+id/tv_facebook"
+        />
+
+    <TextView
+        android:id="@+id/tv_facebook"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_whatsapp"
+        app:layout_constraintStart_toEndOf="@+id/iv_facebook"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="@android:color/black"
+        android:text="@string/fc_text"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/_8sdp"
+        />
+
+    <TextView
+        android:id="@+id/tv_footer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guidelineL"
+        app:layout_constraintEnd_toEndOf="@id/guidelineR"
+        android:textSize="@dimen/_12sdp"
+        android:textColor="@android:color/black"
+        android:text="@string/copyright_text"
+        android:textAlignment="center"
+        android:layout_marginBottom="@dimen/_4sdp"
+        />
 
 
 

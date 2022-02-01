@@ -6,6 +6,8 @@ class ApplicationConstants {
          const val BASE_URL: String = "http://165.22.72.42/mcqs/public/api/"
         const val LOGIN: String = "login"
         const val REGISTER: String = "register"
+        const val EDIT_PROFILE: String = "editprofile"
+        const val CONTACT: String = "contactus"
         const val MCQ_List: String = "mcq_lists"
         const val MCQ_History_List: String = "mcq_history_lists"
         const val DAILY_TIME: String = "DailyTime"
@@ -25,6 +27,8 @@ class ApplicationConstants {
         const val ACCEPT_LABEL: String = "Accept"
         const val USER_ID: String = "user_id"
         const val USER_PASS: String = "user_pass"
+        const val IMAGE_URL: String = "image_url"
+        const val NAME: String = "name"
         const val USER_TOKEN: String = "user_token"
         const val SUCCESS_CODE: Int = 200
         const val GATEWAY_TIMEOUT_CODE: Int = 504
