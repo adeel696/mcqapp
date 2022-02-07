@@ -4,11 +4,9 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.digitalandroidweb.androidregisterandlogin.LoginActivity
 import com.digitalandroidweb.androidregisterandlogin.R
 import com.digitalandroidweb.androidregisterandlogin.RegisterActivity
@@ -16,8 +14,6 @@ import com.digitalandroidweb.androidregisterandlogin.model.GetMcqHistoryResponse
 import com.digitalandroidweb.androidregisterandlogin.model.GetMcqResponse
 import com.digitalandroidweb.androidregisterandlogin.network.RetrofitClient
 import com.digitalandroidweb.androidregisterandlogin.util.General
-import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.fragment_subscriptions.*
 import kotlinx.android.synthetic.main.primer_fragment.*
 import kotlinx.android.synthetic.main.primer_fragment.loading
 import kotlinx.android.synthetic.main.primer_fragment.tv_footer
@@ -29,7 +25,7 @@ import kotlinx.coroutines.launch
 import java.util.*
 
 
-class MCQTypeList : Fragment() {
+class Home : Fragment() {
     var myView: View? = null
 
     // Create a Coroutine scope using a job to be able to cancel when needed
@@ -42,13 +38,13 @@ class MCQTypeList : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.d(MCQTypeList::class.simpleName, "onAttach: ")
+        Log.d(Home::class.simpleName, "onAttach: ")
         this.mContext = context
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d(MCQTypeList::class.simpleName, "onViewCreated: ")
+        Log.d(Home::class.simpleName, "onViewCreated: ")
         val year = Calendar.getInstance()[Calendar.YEAR]
         tv_footer.text = getString(R.string.copyright_text, year.toString())
 //        val mLayoutManager = LinearLayoutManager(requireContext())
@@ -58,29 +54,29 @@ class MCQTypeList : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        Log.d(MCQTypeList::class.simpleName, "onActivityCreated: ")
+        Log.d(Home::class.simpleName, "onActivityCreated: ")
     }
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        Log.d(MCQTypeList::class.simpleName, "onCreateView: ")
+        Log.d(Home::class.simpleName, "onCreateView: ")
         myView = inflater.inflate(R.layout.primer_fragment, container, false)
         return myView
     }
 
     private fun callApi() {
-        Log.d(MCQTypeList::class.simpleName, "callApi: ")
+        Log.d(Home::class.simpleName, "callApi: ")
 
         coroutineScope.launch {
             try {
                 val retrofitService = RetrofitClient.GetService()
-                val response = retrofitService.getMCQHistoryList(General.addHeaders(mContext, true))
+                val response = retrofitService.getMCQHistoryList(General.addHeaders(mContext, true),1)
                 if(response.isSuccessful && response.body()!=null){
-                    Log.d(MCQTypeList::class.simpleName, " Success: ${response.body()}")
+                    Log.d(Home::class.simpleName, " Success: ${response.body()}")
                     val mcqHistoryList = response.body() as ArrayList<GetMcqHistoryResponse>
                     coroutineScope.launch(Dispatchers.Main) {
                         if (mcqHistoryList.isNotEmpty()) {
-                            Log.d(MCQTypeList::class.simpleName, "callApi: ${mcqHistoryList.size}")
+                            Log.d(Home::class.simpleName, "callApi: ${mcqHistoryList.size}")
                             for (mcqHistory in mcqHistoryList) {
                                 rv_mcqHistoryD.addView(HeaderView(mContext, mcqHistory.mcqName))
                                 if (mcqHistory.mcqHistory.isNotEmpty()) {
@@ -91,7 +87,7 @@ class MCQTypeList : Fragment() {
                             }
                             loading.visibility = View.GONE
                         } else{
-                            Log.d(MCQTypeList::class.simpleName, "callApi: MCQList is Empty...")
+                            Log.d(Home::class.simpleName, "callApi: MCQList is Empty...")
                             loading.visibility = View.GONE
                             rv_mcqHistoryD.visibility = View.GONE
                         }
@@ -111,7 +107,7 @@ class MCQTypeList : Fragment() {
                 if(response.isSuccessful && response.body()!=null){
                     Log.d(RegisterActivity::class.simpleName, " Success: ${response.body()}")
                     val mcqList = response.body() as ArrayList<GetMcqResponse>
-                    Log.d(MCQTypeList::class.simpleName, "callApi: ${mcqList.size}")
+                    Log.d(Home::class.simpleName, "callApi: ${mcqList.size}")
                     coroutineScope.launch(Dispatchers.Main) {
                         for(mcq in mcqList){
                             rv_mcqType.addView(HeaderView(mContext,mcq.mcqType))
@@ -136,17 +132,17 @@ class MCQTypeList : Fragment() {
                 val retrofitService = RetrofitClient.GetService()
                 val response = retrofitService.getTimeSpend(General.addHeaders(mContext, true))
                 if(response.isSuccessful && response.body()!=null){
-                    Log.d(MCQTypeList::class.simpleName, " Success: ${response.body()}")
+                    Log.d(Home::class.simpleName, " Success: ${response.body()}")
                     val time = response.body() as String
-                    Log.d(MCQTypeList::class.simpleName, "callTimeApi: ${time}")
+                    Log.d(Home::class.simpleName, "callTimeApi: ${time}")
                     coroutineScope.launch(Dispatchers.Main) {
                         tv_time_spend.text = time
                     }
                 }else{
-                    Log.d(MCQTypeList::class.simpleName, "callTime Api Fail: ${response.errorBody()}")
+                    Log.d(Home::class.simpleName, "callTime Api Fail: ${response.errorBody()}")
                 }
             } catch (e: Exception) {
-                Log.d(MCQTypeList::class.simpleName, "callTime Api: Exception ${e.message} ")
+                Log.d(Home::class.simpleName, "callTime Api: Exception ${e.message} ")
             }
         }
 

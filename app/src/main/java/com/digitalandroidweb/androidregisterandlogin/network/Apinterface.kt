@@ -26,19 +26,31 @@ interface Apinterface {
     @GET(ApplicationConstants.MCQ_List)
     suspend fun getMCQsList(@HeaderMap header: Map<String?, String?>): Response<List<GetMcqResponse>>
 
-    @GET(ApplicationConstants.MCQ_History_List)
-    suspend fun getMCQHistoryList(@HeaderMap header: Map<String?, String?>): Response<List<GetMcqHistoryResponse>>
+    @GET(ApplicationConstants.MCQ_History_List+"/{mcqTypeId}")
+    suspend fun getMCQHistoryList(@HeaderMap header: Map<String?, String?>,@Path("mcqTypeId") mcqTypeId: Int): Response<List<GetMcqHistoryResponse>>
 
     @GET(ApplicationConstants.DAILY_TIME)
     suspend fun getTimeSpend(@HeaderMap header: Map<String?, String?>): Response<String>
 
 
 
-    @GET(ApplicationConstants.PAYMENT_LIST)
-    suspend fun getPaymentHistory(@HeaderMap header: Map<String?, String?>): Response<List<Payment>>
+    @GET(ApplicationConstants.PAYMENT_LIST+"/{mcqTypeId}")
+    suspend fun getPaymentHistory(@HeaderMap header: Map<String?, String?>,@Path("mcqTypeId") mcqTypeId: Int): Response<List<Payment>>
+
+    @GET(ApplicationConstants.TRAINING_LIST)
+    suspend fun getTrainingList(@HeaderMap header: Map<String?, String?>): Response<List<PointOfSale>>
 
     @GET(ApplicationConstants.OFFER_LIST)
     suspend fun getOfferList(@HeaderMap header: Map<String?, String?>): Response<List<Offer>>
+
+    @GET(ApplicationConstants.DOC_YEARS)
+    suspend fun getYearsList(@HeaderMap header: Map<String?, String?>,): Response<List<YearPublication>>
+
+    @GET(ApplicationConstants.POINT_OF_SALE)
+    suspend fun getPointOfSale(@HeaderMap header: Map<String?, String?>,): Response<List<PointOfSale>>
+
+    @GET(ApplicationConstants.DOCUMENT+"/{doc_year}")
+    suspend fun getYearDoc(@HeaderMap header: Map<String?, String?>,@Path("doc_year") docYear: Int): Response<List<DocYear>>
 
     @GET(ApplicationConstants.SUBSCRIPTION_LIST)
     suspend fun getSubscriptionList(@HeaderMap header: Map<String?, String?>): Response<List<Subscription>>

@@ -21,7 +21,12 @@ data class RegisterResponse (
 )
 
 data class GetMcqResponse (
+        @SerializedName("id") val id : String,
 @SerializedName("McqType") val mcqType : String,
+@SerializedName("Description") val description : String,
+@SerializedName("Subscribe") val subscribe : String,
+@SerializedName("ExpiryDate") val expiryDate : String,
+@SerializedName("Amount") val amount : String,
 @SerializedName("McqDetail") val mcqDetail : List<McqDetail>
 )
 
@@ -56,6 +61,28 @@ data class Offer (
         @SerializedName("McqTypeName") val mcqTypeName : String,
         @SerializedName("Subscription") val subscription : Int,
         @SerializedName("Amount") val amount : Int
+)
+
+data class PointOfSale (
+        @SerializedName("id") val id : Int,
+        @SerializedName("name") val name : String,
+        @SerializedName("city") val city : String,
+        @SerializedName("address") val address : String,
+        @SerializedName("phone_number_1") val phone_number_1 : String,
+        @SerializedName("phone_number_2") val phone_number_2 : String,
+        @SerializedName("phone_number_3") val phone_number_3 : String,
+        @SerializedName("created_at") val created_at : String,
+        @SerializedName("updated_at") val updated_at : String,
+)
+
+data class YearPublication (
+        @SerializedName("year_of_publication") val year : String
+)
+
+data class DocYear (
+        @SerializedName("year_of_publication") val year : String,
+        @SerializedName("image") val image : String,
+        @SerializedName("description") val description : String
 )
 
 data class Subscription (

@@ -18,9 +18,9 @@ import com.bumptech.glide.request.RequestOptions
 import com.digitalandroidweb.androidregisterandlogin.LoginActivity
 import com.digitalandroidweb.androidregisterandlogin.R
 import com.digitalandroidweb.androidregisterandlogin.util.SharedPreference
-import com.digitalandroidweb.androidregisterandlogin.views.History.MCQHistory
-import com.digitalandroidweb.androidregisterandlogin.views.Offers
-import com.digitalandroidweb.androidregisterandlogin.views.PaymentHistory
+import com.digitalandroidweb.androidregisterandlogin.views.History.Profile
+import com.digitalandroidweb.androidregisterandlogin.views.Documents
+import com.digitalandroidweb.androidregisterandlogin.views.Trainings
 import com.digitalandroidweb.androidregisterandlogin.views.ContactUs
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
@@ -64,7 +64,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         Log.d(DashboardActivity::class.simpleName, "loadHomePage: ")
         val fragmentManager = supportFragmentManager
         fragmentManager.beginTransaction()
-                .replace(R.id.content_frame, MCQTypeList())
+                .replace(R.id.content_frame, Home())
                 .commit()
     }
 
@@ -106,17 +106,17 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         if (id == R.id.home) {
             tv_title.text = getString(R.string.home)
             fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, MCQTypeList())
+                    .replace(R.id.content_frame, Home())
                     .commit()
         } else if (id == R.id.trainings) {
             tv_title.text = getString(R.string.trainings)
             fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, PaymentHistory())
+                    .replace(R.id.content_frame, Trainings())
                     .commit()
         } else if (id == R.id.documents) {
             tv_title.text = getString(R.string.documents)
             fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, Offers())
+                    .replace(R.id.content_frame, Documents())
                     .commit()
         } else if (id == R.id.contacts) {
             tv_title.text = getString(R.string.contacts)
@@ -126,7 +126,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         }else if (id == R.id.profile) {
             tv_title.text = getString(R.string.profile)
             fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, MCQHistory())
+                    .replace(R.id.content_frame, Profile())
                     .commit()
         }else if (id == R.id.close) {
             showAppCloseDialog()

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MAIGA Formations</string>
+    <string name="app_name">MAIGA Formations IPECO</string>
     <string name="title_activity_principal">Formations MAIGA</string>
     <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
     <string name="navigation_drawer_close">Fermer le tiroir de navigation</string>
@@ -49,7 +49,7 @@
     <string name="next">Suivant</string>
     <string name="your_score_is">Votre score: %1$s</string>
     <string name="detail">Détail</string>
-    <string name="mcq_history">Historique des QCM</string>
+    <string name="mcq_history">QCM Historique</string>
     <string name="score">Score</string>
     <string name="subscriptions">Récapitulatif</string>
     <string name="no_payment">Aucun historique de paiement disponible</string>
@@ -64,7 +64,7 @@
     <string name="yes">Oui</string>
     <string name="no">Non</string>
     <string name="mcq">QCM</string>
-    <string name="home">Home</string>
+    <string name="home">Acceuil</string>
     <string name="trainings">Formations</string>
     <string name="documents">Documents</string>
     <string name="contacts">Contacts</string>
@@ -84,4 +84,14 @@
     <string name="header_desc">Vous formez en ligne et en présentiel aux différents concours de la Fonction publique.</string>
     <string name="image">Image</string>
     <string name="profile_update">Mise à jour du profil réussie.</string>
+    <string name="header_doc">Dans cette rubrique, vous trouverez les documents produits chaque année par MAIGA Formations IPECO et ces collaborateurs.</string>
+    <string name="point_sale">Points de vente</string>
+    <string name="title_training">Avec MAIGA Formations IPECO, pprofitez d"une gamme de QCM pour booster vos chances de succès aux concours de la Fonction publique.</string>
+    <string name="training_face">Nos Formations en présentiel</string>
+    <string name="training_desc">Ce sont des formations préparatoires aux concours directs de la Fonction publique qui se déroulent dans les salles de classe à Ouagadougou et en chefs-lieux de région tous les samedis et dimanches de 9h-11h30 ou 15h-17h30.</string>
+    <string name="training_online">Nos formations</string>
+    <string name="run">Courir</string>
+    <string name="renew">Renouveler</string>
+    <string name="subscribe_traing">S\'abonner</string>
+    <string name="payment">Paiement</string>
 </resources>

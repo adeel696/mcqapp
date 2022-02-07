@@ -7,6 +7,11 @@ android {
     compileSdkVersion 30
     buildToolsVersion "29.0.3"
 
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
     defaultConfig {
         applicationId "com.digitalandroidweb.androidregisterandlogin"
         minSdkVersion 19

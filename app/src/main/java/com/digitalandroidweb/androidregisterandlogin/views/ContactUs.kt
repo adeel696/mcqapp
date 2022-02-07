@@ -131,7 +131,7 @@ class ContactUs : Fragment() {
                 if(response.isSuccessful && response.body()!=null){
                     Log.d(ContactUs::class.simpleName, " Success: ${response.body()}")
                     val subscriptionList = response.body() as ArrayList<Subscription>
-                    Log.d(PaymentHistory::class.simpleName, "callApi: ${subscriptionList.size}")
+                    Log.d(ContactUs::class.simpleName, "callApi: ${subscriptionList.size}")
                     coroutineScope.launch(Dispatchers.Main) {
                         adapter = SubscriptionAdapter(subscriptionList, mContext)
                         rv_subscription.adapter = adapter

@@ -12,12 +12,11 @@ import androidx.fragment.app.Fragment
 import com.digitalandroidweb.androidregisterandlogin.LoginActivity
 import com.digitalandroidweb.androidregisterandlogin.R
 import com.digitalandroidweb.androidregisterandlogin.RegisterActivity
-import com.digitalandroidweb.androidregisterandlogin.model.LoginResponse
 import com.digitalandroidweb.androidregisterandlogin.model.PaymentRequest
 import com.digitalandroidweb.androidregisterandlogin.model.PaymentResponse
 import com.digitalandroidweb.androidregisterandlogin.network.RetrofitClient
 import com.digitalandroidweb.androidregisterandlogin.util.General
-import com.digitalandroidweb.androidregisterandlogin.views.Dashboard.MCQTypeList
+import com.digitalandroidweb.androidregisterandlogin.views.Dashboard.Home
 import kotlinx.android.synthetic.main.fragment_payment_screen.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -53,7 +52,7 @@ class PaymentScreen : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.d(MCQTypeList::class.simpleName, "onAttach: ")
+        Log.d(Home::class.simpleName, "onAttach: ")
         this.mContext = context
     }
 

@@ -19,7 +19,6 @@ import com.digitalandroidweb.androidregisterandlogin.R
 import com.digitalandroidweb.androidregisterandlogin.RegisterActivity
 import com.digitalandroidweb.androidregisterandlogin.model.GetMcqHistoryResponse
 import com.digitalandroidweb.androidregisterandlogin.model.ProfileRequest
-import com.digitalandroidweb.androidregisterandlogin.model.RegisterRequest
 import com.digitalandroidweb.androidregisterandlogin.model.RegisterResponse
 import com.digitalandroidweb.androidregisterandlogin.network.RetrofitClient
 import com.digitalandroidweb.androidregisterandlogin.util.General
@@ -29,13 +28,17 @@ import com.digitalandroidweb.androidregisterandlogin.views.Dashboard.ChildViewMC
 import com.digitalandroidweb.androidregisterandlogin.views.Dashboard.HeaderView
 import com.github.dhaval2404.imagepicker.ImagePicker
 import kotlinx.android.synthetic.main.fragment_m_c_q_history.*
+import kotlinx.android.synthetic.main.fragment_m_c_q_history.loading
+import kotlinx.android.synthetic.main.fragment_m_c_q_history.tv_footer
+import kotlinx.android.synthetic.main.fragment_m_c_q_history.tv_time_spend
+import kotlinx.android.synthetic.main.primer_fragment.*
 import kotlinx.coroutines.*
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
 import java.util.*
 
 
-class MCQHistory : Fragment() {
+class Profile : Fragment() {
 
     var myView: View? = null
 
@@ -49,24 +52,26 @@ class MCQHistory : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.d(MCQHistory::class.simpleName, "onAttach: ")
+        Log.d(Profile::class.simpleName, "onAttach: ")
         this.mContext = context
     }
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        Log.d(MCQHistory::class.simpleName, "onCreateView: ")
+        Log.d(Profile::class.simpleName, "onCreateView: ")
         myView = inflater.inflate(R.layout.fragment_m_c_q_history, container, false)
         return myView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d(MCQHistory::class.simpleName, "onViewCreated: ")
+        Log.d(Profile::class.simpleName, "onViewCreated: ")
+        val year = Calendar.getInstance()[Calendar.YEAR]
+        tv_footer.text = getString(R.string.copyright_text, year.toString())
         val name = SharedPreference.getName(mContext)
         edt_name.setText(name)
         btn_image.setOnClickListener {
-            Log.d(MCQHistory::class.simpleName, "onViewCreated: ")
+            Log.d(Profile::class.simpleName, "onViewCreated: ")
             ImagePicker.with(this)
                     .crop()	    			//Crop image(Optional), Check Customization for more option
                     .compress(1024)			//Final image size will be less than 1 MB(Optional)
@@ -74,7 +79,7 @@ class MCQHistory : Fragment() {
                     .start()
         }
         btn_submit.setOnClickListener {
-            Log.d(MCQHistory::class.simpleName, "onViewCreated: ")
+            Log.d(Profile::class.simpleName, "onViewCreated: ")
             val name = edt_name.text.toString().trim { it <= ' ' }
             val password = edt_password.text.toString().trim { it <= ' ' }
             val confirmPassword = confirm_password.text.toString().trim { it <= ' ' }
@@ -98,7 +103,7 @@ class MCQHistory : Fragment() {
             }
 
             if(encodedImage == ""){
-                Log.d(MCQHistory::class.simpleName, "onViewCreated: Image is Empty...")
+                Log.d(Profile::class.simpleName, "onViewCreated: Image is Empty...")
                 Toast.makeText(mContext, "Please Select Image", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -147,17 +152,17 @@ class MCQHistory : Fragment() {
 
 
     private fun callApi() {
-        Log.d(MCQHistory::class.simpleName, "callApi: ")
+        Log.d(Profile::class.simpleName, "callApi: ")
         coroutineScope.launch {
             try {
                 val retrofitService = RetrofitClient.GetService()
-                val response = retrofitService.getMCQHistoryList(General.addHeaders(mContext, true))
+                val response = retrofitService.getMCQHistoryList(General.addHeaders(mContext, true),1)
                 if(response.isSuccessful && response.body()!=null){
-                    Log.d(MCQHistory::class.simpleName, " Success: ${response.body()}")
+                    Log.d(Profile::class.simpleName, " Success: ${response.body()}")
                     val mcqHistoryList = response.body() as ArrayList<GetMcqHistoryResponse>
                     coroutineScope.launch(Dispatchers.Main) {
                         if (mcqHistoryList.isNotEmpty()) {
-                            Log.d(MCQHistory::class.simpleName, "callApi: ${mcqHistoryList.size}")
+                            Log.d(Profile::class.simpleName, "callApi: ${mcqHistoryList.size}")
                             for (mcqHistory in mcqHistoryList) {
                                 rv_mcqHistory.addView(HeaderView(mContext, mcqHistory.mcqName))
                                 if (mcqHistory.mcqHistory.isNotEmpty()) {
@@ -168,7 +173,7 @@ class MCQHistory : Fragment() {
                             }
                             loading.visibility = View.GONE
                         } else{
-                            Log.d(MCQHistory::class.simpleName, "callApi: MCQList is Empty...")
+                            Log.d(Profile::class.simpleName, "callApi: MCQList is Empty...")
                             loading.visibility = View.GONE
                             rv_mcqHistory.visibility = View.GONE
                             tv_no_history.visibility = View.VISIBLE
@@ -215,7 +220,7 @@ class MCQHistory : Fragment() {
             val imageStream: InputStream = mContext.contentResolver.openInputStream(uri)!!
             val selectedImage = BitmapFactory.decodeStream(imageStream)
             encodedImage = encodeImage(selectedImage)
-            Log.d(MCQHistory::class.simpleName, "onActivityResult: $encodedImage")
+            Log.d(Profile::class.simpleName, "onActivityResult: $encodedImage")
         } else if (resultCode == ImagePicker.RESULT_ERROR) {
             Toast.makeText(mContext, ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
         } else {

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MAIGA Formations</string>
+    <string name="app_name">MAIGA Formations IPECO</string>
     <string name="title_activity_principal">MAIGA Formations</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -83,4 +83,16 @@
     <string name="header_desc">You train online and face-to-face for the various public service competitions.</string>
     <string name="image">Image</string>
     <string name="profile_update">Profile Updated Successfully</string>
+    <string name="header_doc">In this section, you will find the documents produced each year by MAIGA Formations IPECO and its collaborators.</string>
+    <string name="point_sale">Points of sale</string>
+    <string name="title_training">With MAIGA Formations IPECO, take advantage of a range of MCQs to boost your chances of success in civil service competitions.</string>
+    <string name="training_face">Our face-to-face training</string>
+    <string name="training_desc">These are preparatory training courses for direct public service competitions which take place in classrooms in Ouagadougou and in regional capitals every Saturday and Sunday from 9 a.m. to 11.30 a.m. or 3 p.m. to 5.30 p.m.</string>
+    <string name="training_online">Our online courses</string>
+    <string name="run">Run</string>
+    <string name="renew">Renew</string>
+    <string name="subscribe_traing">Subscribe</string>
+    <string name="payment">Payment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
