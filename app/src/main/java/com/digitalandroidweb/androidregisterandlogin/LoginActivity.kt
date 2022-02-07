@@ -24,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
     // Create a Coroutine scope using a job to be able to cancel when needed
     var viewModelJob = Job()
 
+
     // the Coroutine runs using the Main (UI) dispatcher
     val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.IO)
 
