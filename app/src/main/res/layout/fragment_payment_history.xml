@@ -90,7 +90,7 @@
         tools:listitem="@layout/mcq_history_child"
         android:scrollbars="vertical"
         app:layout_constrainedHeight="true"
-        android:visibility="gone"
+        android:visibility="visible"
         >
     </com.mindorks.placeholderview.ExpandablePlaceHolderView>
 

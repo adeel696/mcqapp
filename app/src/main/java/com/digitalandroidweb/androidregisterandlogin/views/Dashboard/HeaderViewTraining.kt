@@ -1,6 +1,7 @@
 package com.digitalandroidweb.androidregisterandlogin.views.Dashboard
 
 import android.content.Context
+import android.text.Html
 import android.util.Log
 import android.widget.TextView
 import com.digitalandroidweb.androidregisterandlogin.R
@@ -24,7 +25,7 @@ class HeaderViewTraining(context: Context, headerText: String) {
     @Resolve
     private fun onResolve() {
         Log.d(HeaderView::class.simpleName, "onResolve: ")
-        headerText!!.text = mHeaderText
+        headerText!!.text = Html.fromHtml(mHeaderText)
     }
 
     @Expand

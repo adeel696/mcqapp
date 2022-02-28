@@ -64,8 +64,6 @@ class ChildViewTraining(mContext: Context, mcqDetail: McqDetail?,amount:Int,id:I
     @Resolve
     private fun onResolve() {
         Log.d(ChildViewTraining::class.simpleName, "onResolve: ")
-
-
         if(mcqDetail == null){
             Log.d(ChildViewTraining::class.simpleName, "onResolve: ")
             tvMCQName?.visibility = android.view.View.GONE

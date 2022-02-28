@@ -22,6 +22,9 @@ class ChildViewMCQHistory(mContext: Context, mcqHistory: McqHistory) {
     @View(R.id.tv_score_txt)
     var tvScoreTxt: TextView? = null
 
+    @View(R.id.tv_rank_txt)
+    var tvRankTxt: TextView? = null
+
 
     private val mContext: Context
     private val mcqHistory: McqHistory
@@ -38,6 +41,7 @@ class ChildViewMCQHistory(mContext: Context, mcqHistory: McqHistory) {
         tvDateTxt?.text = General.getFormatedDateHistory(mcqHistory.date)
         tvScoreTxt?.text = mcqHistory.score
         tvStatusTxt?.text = mcqHistory.status
+        tvRankTxt?.text = mcqHistory.rank
 
     }
 

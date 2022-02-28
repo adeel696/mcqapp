@@ -45,7 +45,9 @@ data class McqDetail (
 data class McqHistory (
         @SerializedName("Date") val date : String,
         @SerializedName("Status") val status : String,
-        @SerializedName("Score") val score : String
+        @SerializedName("Score") val score : String,
+        @SerializedName("Rank") val rank : String,
+        @SerializedName("Rank_Show") val rank_Show : String
 )
 
 data class Payment (

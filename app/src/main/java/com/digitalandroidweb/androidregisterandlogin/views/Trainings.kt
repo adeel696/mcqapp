@@ -41,7 +41,7 @@ class Trainings : Fragment() {
     lateinit var mContext: Context
     private lateinit var adapter: PaymentAdapter
     private var textVisibility = false
-    private var onlineVisibility = false
+    private var onlineVisibility = true
     private lateinit var pointOfSaleAdapter: PointOfSaleAdapter
 
 
@@ -110,7 +110,7 @@ class Trainings : Fragment() {
                     Log.d(Trainings::class.simpleName, "callApi: ${mcqList.size}")
                     withContext(Dispatchers.Main) {
                         for(mcq in mcqList){
-                            rv_mcqHistoryD.addView(HeaderViewTraining(mContext," ${mcq.mcqType} \n${mcq.description}"))
+                            rv_mcqHistoryD.addView(HeaderViewTraining(mContext," ${mcq.mcqType} <br/> ${mcq.description}"))
                             if(mcq.mcqDetail.isNotEmpty()) {
                                 for(mqDetail in mcq.mcqDetail) {
                                     rv_mcqHistoryD.addView(ChildViewTraining(mContext, mqDetail,mcq.amount.toInt(),mcq.id.toInt()))

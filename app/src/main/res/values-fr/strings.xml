@@ -44,7 +44,7 @@
     <string name="name_detail">Nom</string>
     <string name="username">Utilisateur</string>
     <string name="confrim_password">Confirmer le mot de passe</string>
-    <string name="phone_number">Numéro de téléphone</string>
+    <string name="phone_number">Téléphone(xx xx xx xx)</string>
     <string name="start_test">Démarrer le test</string>
     <string name="next">Suivant</string>
     <string name="your_score_is">Votre score: %1$s</string>
@@ -64,13 +64,13 @@
     <string name="yes">Oui</string>
     <string name="no">Non</string>
     <string name="mcq">QCM</string>
-    <string name="home">Acceuil</string>
+    <string name="home">Accueil</string>
     <string name="trainings">Formations</string>
     <string name="documents">Documents</string>
-    <string name="contacts">Contacts</string>
-    <string name="profile">Profile</string>
+    <string name="contacts">Contact</string>
+    <string name="profile">Profil</string>
     <string name="exit">Quitter</string>
-    <string name="contact_detail">Contactez-nous auc détails ci-dessous. Nous sommes là pour vous assister.</string>
+    <string name="contact_detail">Contactez-nous aux détails ci-dessous. Nous sommes là pour vous assister.</string>
     <string name="message">Message</string>
     <string name="directions">Ouagadougou, Secteur N°17 Tanghin, Avenue de la Concorde nationale, Porte 427</string>
     <string name="telephone">Téléphones: +226 76 50 66 66, +226 78 50 66 66, +226 62 50 66 66</string>
@@ -86,12 +86,13 @@
     <string name="profile_update">Mise à jour du profil réussie.</string>
     <string name="header_doc">Dans cette rubrique, vous trouverez les documents produits chaque année par MAIGA Formations IPECO et ces collaborateurs.</string>
     <string name="point_sale">Points de vente</string>
-    <string name="title_training">Avec MAIGA Formations IPECO, pprofitez d"une gamme de QCM pour booster vos chances de succès aux concours de la Fonction publique.</string>
-    <string name="training_face">Nos Formations en présentiel</string>
+    <string name="title_training">Avec MAIGA Formations IPECO, profitez d\'une gamme de QCM pour booster vos chances de succès aux concours de la Fonction publique.</string>
+    <string name="training_face">Nos formations en présentiel</string>
     <string name="training_desc">Ce sont des formations préparatoires aux concours directs de la Fonction publique qui se déroulent dans les salles de classe à Ouagadougou et en chefs-lieux de région tous les samedis et dimanches de 9h-11h30 ou 15h-17h30.</string>
-    <string name="training_online">Nos formations</string>
+    <string name="training_online">Nos formations en ligne</string>
     <string name="run">Courir</string>
     <string name="renew">Renouveler</string>
     <string name="subscribe_traing">S\'abonner</string>
     <string name="payment">Paiement</string>
+    <string name="rank">Rang</string>
 </resources>
